@@ -91,10 +91,10 @@ function Home() {
                   </Link>
 
                   <a
-                    href="tel:3105550199"
+                    href="tel:03020000973"
                     className="border border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 text-xs font-semibold uppercase tracking-wider transition-all duration-300 rounded-none text-center"
                   >
-                    Call (310) 555-0199
+                    Call 0302-0000973
                   </a>
                 </div>
               </motion.div>

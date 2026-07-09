@@ -174,7 +174,7 @@ function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-2.5 bg-cream border border-accent/20 focus:border-accent outline-none transition-all text-sm rounded-none"
-                        placeholder="(310) 555-0199"
+                        placeholder="0302-0000973"
                       />
                     </div>
                   </div>

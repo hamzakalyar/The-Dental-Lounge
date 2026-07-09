@@ -105,7 +105,7 @@ function Header() {
           <div className="hidden lg:flex items-center gap-6">
             {/* Phone Number */}
             <a
-              href="tel:3105550199"
+              href="tel:03020000973"
               className="flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300 group"
             >
               <svg
@@ -121,7 +121,7 @@ function Header() {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span className="text-sm font-semibold tracking-wide">(310) 555-0199</span>
+              <span className="text-sm font-semibold tracking-wide">0302-0000973</span>
             </a>
 
             {/* Book Appointment Button */}
@@ -191,7 +191,7 @@ function Header() {
 
                 {/* Mobile Phone */}
                 <a
-                  href="tel:3105550199"
+                  href="tel:03020000973"
                   className="flex items-center gap-3 px-4 py-3 text-primary hover:text-accent transition-colors"
                 >
                   <svg
@@ -207,7 +207,7 @@ function Header() {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  <span className="text-sm font-semibold">(310) 555-0199</span>
+                  <span className="text-sm font-semibold">0302-0000973</span>
                 </a>
 
                 {/* Mobile Book Button */}

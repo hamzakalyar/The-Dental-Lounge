@@ -42,10 +42,10 @@ function CTASection() {
             </Link>
 
             <a
-              href="tel:3105550199"
+              href="tel:03020000973"
               className="w-full sm:w-auto border border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 text-xs font-semibold uppercase tracking-wider transition-all duration-300 rounded-none flex items-center justify-center gap-2"
             >
-              Call (310) 555-0199
+              Call 0302-0000973
             </a>
           </div>
 
