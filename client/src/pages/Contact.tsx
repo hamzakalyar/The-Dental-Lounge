@@ -116,7 +116,7 @@ function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-accent/10 border border-accent/30 text-accent px-6 py-4 mb-6 text-sm"
                   >
-                    <strong>Message Prepared!</strong> Please send the email via your default mail client.
+                    <strong>Message Prepared!</strong> Please send the email via your default mail client. We will review it and notify you shortly!
                   </motion.div>
                 )}
 

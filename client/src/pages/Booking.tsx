@@ -75,7 +75,7 @@ function Booking() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-accent/10 border border-accent/30 text-accent px-6 py-4 mb-10 text-sm text-center max-w-3xl mx-auto"
             >
-              <strong>Booking Request Prepared!</strong> Please send the email via your default mail client to complete your request.
+              <strong>Booking Request Prepared!</strong> Please send the email via your default mail client to complete your request. We will review it and notify you shortly!
             </motion.div>
           )}
 
