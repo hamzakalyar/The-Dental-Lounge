@@ -9,6 +9,7 @@ function Layout() {
         Skip to content
       </a>
       <Header />
+      {/* No padding-top since navbar is transparent and doesn't block content */}
       <main id="main-content" className="flex-grow">
         <Outlet />
       </main>

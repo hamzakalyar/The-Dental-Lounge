@@ -1,22 +1,22 @@
 // Application constants
 
-export const APP_NAME = 'Aesthetic Dental Clinic';
+export const APP_NAME = 'The Dental Lounge';
 
 export const CONTACT_INFO = {
-  phone: '(555) 123-4567',
-  email: 'info@aestheticdental.com',
+  phone: '0302-0000973',
+  email: 'hamzaimtiaz9970@gmail.com',
   address: {
-    street: '123 Dental Avenue, Suite 100',
-    city: 'San Francisco',
-    state: 'CA',
-    zip: '94102',
+    street: 'D-110 5th floor, 6th Road',
+    city: 'Satellite Town',
+    state: 'Rawalpindi',
+    zip: '',
   },
 };
 
 export const BUSINESS_HOURS = {
   weekdays: {
     label: 'Monday - Friday',
-    hours: '8:00 AM - 6:00 PM',
+    hours: '8:00 AM - 5:00 PM',
   },
   saturday: {
     label: 'Saturday',

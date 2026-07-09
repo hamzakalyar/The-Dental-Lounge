@@ -2,25 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Variables for Clinical Serenity Design System */
+/* CSS Variables for Gold & Cream Design System */
 :root {
-  --color-primary: #0077b6;
-  --color-accent: #00b4d8;
-  --color-neutral-dark: #2b2d42;
-  --color-neutral-mid: #8d99ae;
-  --color-neutral-light: #edf2f4;
+  --color-primary: #131313;
+  --color-accent: #C19852;
+  --color-neutral-dark: #131313;
+  --color-neutral-mid: #555555;
+  --color-neutral-light: #F8F6F0;
+  --color-cream: #FDFCF7;
   --color-surface: #ffffff;
-  --color-success: #06d6a0;
-  --color-warning: #ffd166;
+  --color-success: #2E7D32;
+  --color-warning: #EF6C00;
 
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-heading: 'Crimson Text', Georgia, serif;
+  --font-body: 'Red Hat Text', Inter, sans-serif;
 
-  --shadow-soft: 0 2px 8px rgba(43, 45, 66, 0.08);
-  --shadow-soft-lg: 0 4px 16px rgba(43, 45, 66, 0.12);
-  --shadow-soft-xl: 0 8px 24px rgba(43, 45, 66, 0.16);
+  --shadow-soft: 0 2px 8px rgba(19, 19, 19, 0.04);
+  --shadow-soft-lg: 0 4px 16px rgba(19, 19, 19, 0.06);
+  --shadow-soft-xl: 0 8px 24px rgba(19, 19, 19, 0.08);
 
-  --transition-default: 0.3s ease;
+  --transition-default: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base styles */
@@ -32,12 +33,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--color-neutral-dark);
-  background-color: var(--color-surface);
+  background-color: var(--color-cream);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
