@@ -64,7 +64,7 @@ function Header() {
                 The
               </span>
               <span className="text-xs font-semibold tracking-widest text-accent uppercase leading-none mt-1">
-                Dental Studio
+                Dental Lounge
               </span>
             </div>
           </Link>
