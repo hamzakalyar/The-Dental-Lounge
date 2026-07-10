@@ -42,31 +42,15 @@ function Booking() {
 
   return (
     <div className="min-h-screen pt-16 bg-cream">
-      {/* Hero Section */}
-      <section className="py-8 md:py-10 relative overflow-hidden">
+      {/* Main Booking Section */}
+      <section className="py-12 md:py-20 relative overflow-hidden">
+        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, #C19852 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-3xl">
-            <span className="text-xs font-semibold tracking-widest text-accent uppercase block mb-3">
-              Online Bookings
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary mb-4">
-              Schedule Your Visit
-            </h1>
-            <p className="text-neutral-mid leading-relaxed text-base md:text-lg">
-              Take the first step toward a healthier, more confident smile. Request an appointment below, and our coordinator will confirm your time slot shortly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Form Section */}
-      <section className="py-16 bg-white border-t border-accent/10 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Success Message */}
           {submitStatus === 'success' && (
@@ -79,11 +63,23 @@ function Booking() {
             </motion.div>
           )}
 
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            {/* Left Column: Visuals */}
-            <div className="lg:col-span-5 h-full hidden lg:flex flex-col justify-center">
-              <div className="relative group">
+            {/* Left Column: Text & Visuals */}
+            <div className="lg:col-span-5 h-full flex flex-col pt-2 lg:pt-8">
+              <div className="mb-8">
+                <span className="text-xs font-semibold tracking-widest text-accent uppercase block mb-3">
+                  Online Bookings
+                </span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary mb-6">
+                  Schedule Your Visit
+                </h1>
+                <p className="text-neutral-mid leading-relaxed text-base md:text-lg">
+                  Take the first step toward a healthier, more confident smile. Request an appointment below, and our coordinator will confirm your time slot shortly.
+                </p>
+              </div>
+
+              <div className="relative group hidden lg:block pb-8">
                 <div className="absolute inset-0 bg-accent/20 translate-x-4 translate-y-4 rounded-sm transition-transform duration-500 group-hover:translate-x-6 group-hover:translate-y-6"></div>
                 <div className="relative z-10 w-full overflow-hidden rounded-sm border border-accent/15 shadow-xl">
                   <img
@@ -100,10 +96,10 @@ function Booking() {
               </div>
             </div>
 
-            {/* Right Column: Form (Beige) */}
+            {/* Right Column: Form */}
             <div className="lg:col-span-7">
               {/* Booking Form Wrapper */}
-              <div className="border border-accent/15 p-8 md:p-10 bg-cream shadow-lg rounded-sm relative">
+              <div className="border border-accent/15 p-8 md:p-10 bg-white shadow-lg rounded-sm relative">
                 {/* Decorative corner accents */}
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent/40" />
                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent/40" />

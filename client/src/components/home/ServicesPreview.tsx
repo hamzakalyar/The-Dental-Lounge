@@ -11,6 +11,13 @@ const featuredServices = [
     slug: 'cosmetic-whitening',
     featured: true,
     image: '/images/services/whitening.png',
+    features: [
+      'Enamel-safe whitening gels',
+      'Accelerated LED activation',
+      'Up to 8 shades lighter',
+      'Minimal post-op sensitivity',
+      'Take-home touch-up kit',
+    ],
   },
   {
     icon: '🦷',
@@ -20,6 +27,13 @@ const featuredServices = [
     slug: 'preventive-checkup',
     featured: true,
     image: '/images/services/checkup.png',
+    features: [
+      'Complete oral examination',
+      'Gentle professional scaling',
+      'Ultra-low dose digital X-rays',
+      'Oral cancer checkup',
+      'Personalized hygiene plan',
+    ],
   },
   {
     icon: '💎',
@@ -29,6 +43,13 @@ const featuredServices = [
     slug: 'restorative-implants',
     featured: true,
     image: '/images/services/implants.png',
+    features: [
+      'Biocompatible titanium posts',
+      'Custom ceramic dental crowns',
+      'Advanced 3D guided placement',
+      'Bridges and dentures support',
+      'Restores full chewing power',
+    ],
   },
   {
     icon: '😊',
@@ -38,6 +59,13 @@ const featuredServices = [
     slug: 'orthodontics-invisalign',
     featured: false,
     image: '/images/services/invisalign.png',
+    features: [
+      'Virtually invisible aligners',
+      'Removable for easy cleaning',
+      'Custom digital mapping',
+      'Fewer office check-ins needed',
+      'Comfortable plastic materials',
+    ],
   },
   {
     icon: '🌟',
@@ -47,6 +75,13 @@ const featuredServices = [
     slug: 'cosmetic-veneers',
     featured: false,
     image: '/images/services/veneers.png',
+    features: [
+      'Vibrant, natural enamel match',
+      'Stain-resistant porcelain',
+      'Minimally invasive preparation',
+      'Transforms shape and color',
+      'Long-lasting durability',
+    ],
   },
   {
     icon: '🚨',
@@ -56,6 +91,13 @@ const featuredServices = [
     slug: 'general-emergency',
     featured: false,
     image: '/images/services/emergency.png',
+    features: [
+      'Same-day emergency bookings',
+      'Rapid diagnostics & relief',
+      'Traumatic injury management',
+      'Abscess & swelling drainage',
+      'Temporary fixes on site',
+    ],
   },
 ];
 

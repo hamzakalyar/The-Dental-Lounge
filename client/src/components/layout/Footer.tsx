@@ -11,23 +11,27 @@ function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-4">
             <h3 className="text-2xl font-heading font-semibold text-white mb-4">
-              Aura
+              The
             </h3>
             <p className="text-xs font-semibold tracking-widest text-accent uppercase mb-6">
-              Dental Studio
+              Dental Lounge
             </p>
             <p className="text-sm text-neutral-light/70 leading-relaxed mb-6">
               Experience warm, high-tech dental care tailored to your unique needs in Torrance, CA. From preventive care to cosmetic enhancements, we design healthy, beautiful smiles.
             </p>
             <div className="flex gap-4">
               {/* Gold Social Links */}
-              {['Facebook', 'Instagram', 'Yelp'].map((social) => (
+              {[
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/in/muhammad-hamza-imtiaz-9378502a6/' }
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.url}
+                  target={social.url !== '#' ? "_blank" : undefined}
+                  rel={social.url !== '#' ? "noopener noreferrer" : undefined}
                   className="text-xs uppercase tracking-wider text-accent hover:text-white transition-colors duration-300 font-semibold"
                 >
-                  {social}
+                  {social.name}
                 </a>
               ))}
             </div>

@@ -40,8 +40,8 @@ function Home() {
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />
           </video>
-          {/* Overlay to ensure premium cream theme and text readability */}
-          <div className="absolute inset-0 bg-cream/10" />
+          {/* Overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-black/10" />
         </div>
 
         {/* Subtle grid background pattern */}
@@ -63,21 +63,21 @@ function Home() {
                 transition={{ duration: 0.8 }}
                 className="max-w-2xl text-left"
               >
-                {/* Intro Tag: Accessible Charcoal text with gold left-border line */}
+                {/* Intro Tag: Accessible light text with gold left-border line */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-1 h-4 bg-accent" />
-                  <span className="text-[11px] font-medium tracking-[0.25em] text-primary/70 uppercase block">
+                  <span className="text-[11px] font-medium tracking-[0.25em] text-white/90 uppercase block">
                     Welcome to The Dental Lounge
                   </span>
                 </div>
 
-                {/* Main Heading: Bold and dark with soft white text drop-shadow to pop from video */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-light text-primary mb-6 leading-[1.15] tracking-[-0.01em] drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+                {/* Main Heading: White text with shadow to pop from video */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-light text-white mb-6 leading-[1.15] tracking-[-0.01em] drop-shadow-md">
                   Comfortable, High-Tech Dental Care for All Ages
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-primary/60 text-base md:text-lg mb-10 leading-relaxed font-light tracking-wide">
+                <p className="text-white/90 text-base md:text-lg mb-10 leading-relaxed font-light tracking-wide">
                   Experience a warm, patient-first approach to general and cosmetic dentistry. In our clinic, your comfort is just as important as your oral health. Enjoy calming amenities while we design your healthy, radiant smile.
                 </p>
 
@@ -125,7 +125,7 @@ function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />
                     {/* Open Now pill */}
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-green-200 px-3 py-1 rounded-full shadow-sm">
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-green-200 px-3 py-1 rounded-full shadow-sm">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>

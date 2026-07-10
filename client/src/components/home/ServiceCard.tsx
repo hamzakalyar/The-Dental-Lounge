@@ -9,9 +9,10 @@ interface ServiceCardProps {
   featured?: boolean;
   index?: number;
   image?: string;
+  features?: string[];
 }
 
-function ServiceCard({ icon, title, description, featured, image }: ServiceCardProps) {
+function ServiceCard({ icon, title, description, featured, image, features }: ServiceCardProps) {
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -33,6 +34,22 @@ function ServiceCard({ icon, title, description, featured, image }: ServiceCardP
           />
           {/* Subtle overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none" />
+
+          {/* Hover overlay — feature reveal slides up */}
+          {features && features.length > 0 && (
+            <div className="absolute inset-0 bg-primary/90 backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10 flex flex-col justify-center px-6 py-4">
+              <ul className="space-y-1.5">
+                {features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-xs text-white/75">
+                    <svg className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
 
