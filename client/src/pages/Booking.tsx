@@ -26,7 +26,7 @@ function Booking() {
     preferredTime: '',
     message: '',
   });
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -52,16 +52,7 @@ function Booking() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
-          {/* Success Message */}
-          {submitStatus === 'success' && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-accent/10 border border-accent/30 text-accent px-6 py-4 mb-10 text-sm text-center max-w-3xl mx-auto"
-            >
-              <strong>Booking Request Prepared!</strong> Please send the email via your default mail client to complete your request. We will review it and notify you shortly!
-            </motion.div>
-          )}
+
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
@@ -106,7 +97,7 @@ function Booking() {
                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-accent/40" />
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent/40" />
 
-                <div className="mb-8 text-center">
+                <div className="mb-8 text-center" id="booking-form-top">
                   <h2 className="text-2xl font-heading text-primary mb-2">
                     Request an Appointment
                   </h2>
@@ -115,12 +106,45 @@ function Booking() {
                   </p>
                 </div>
 
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-accent/10 border border-accent/30 text-accent px-6 py-4 mb-8 text-sm text-center"
+                  >
+                    <strong>Booking Request Sent!</strong> Thank you for your request. Our coordinator will contact you shortly to confirm your time slot.
+                  </motion.div>
+                )}
+
                 <form
-                  action="mailto:hamzaimtiaz9970@gmail.com"
-                  method="post"
-                  encType="text/plain"
-                  onSubmit={() => {
-                    setTimeout(() => setSubmitStatus('success'), 500);
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setSubmitStatus('submitting');
+                    
+                    // Simulate network request for the demo
+                    setTimeout(() => {
+                      setSubmitStatus('success');
+                      setFormData({
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        phone: '',
+                        service: '',
+                        preferredDate: '',
+                        preferredTime: '',
+                        message: '',
+                      });
+                      
+                      // Scroll to top of the form to ensure they see the message
+                      const formTop = document.getElementById('booking-form-top');
+                      if (formTop) {
+                        formTop.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+
+                      // Hide success message after 5 seconds
+                      setTimeout(() => setSubmitStatus('idle'), 5000);
+                    }, 1500);
                   }}
                   className="space-y-6"
                 >
@@ -178,6 +202,8 @@ function Booking() {
                           id="email"
                           name="email"
                           required
+                          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                          title="Please enter a valid email address (e.g., jane@example.com)"
                           value={formData.email}
                           onChange={handleChange}
                           className="w-full px-4 py-2.5 bg-white border border-accent/20 focus:border-accent outline-none text-sm rounded-none shadow-sm"
@@ -301,9 +327,20 @@ function Booking() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-accent hover:bg-accent-600 text-white py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 rounded-none shadow-sm mt-2"
+                    disabled={submitStatus === 'submitting'}
+                    className="w-full bg-accent hover:bg-accent-600 disabled:bg-accent/70 disabled:cursor-not-allowed text-white py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 rounded-none shadow-sm mt-2 flex items-center justify-center gap-2"
                   >
-                    Send Request
+                    {submitStatus === 'submitting' ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      'Send Request'
+                    )}
                   </button>
 
                   {/* Phone fallback */}

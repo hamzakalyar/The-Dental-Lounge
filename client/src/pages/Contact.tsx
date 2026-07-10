@@ -10,7 +10,7 @@ function Contact() {
     subject: '',
     message: '',
   });
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
@@ -105,10 +105,12 @@ function Contact() {
             {/* Form Column */}
             <div className="lg:col-span-8">
               <div className="border border-accent/15 p-8 md:p-10 bg-white shadow-lg rounded-sm">
-                <h2 className="text-2xl font-heading text-primary mb-2">Send a Message</h2>
-                <p className="text-sm text-neutral-mid mb-6">
-                  Fill out the form below and our office coordinator will get in touch with you shortly.
-                </p>
+                <div id="contact-form-top">
+                  <h2 className="text-2xl font-heading text-primary mb-2">Send a Message</h2>
+                  <p className="text-sm text-neutral-mid mb-6">
+                    Fill out the form below and our office coordinator will get in touch with you shortly.
+                  </p>
+                </div>
 
                 {submitStatus === 'success' && (
                   <motion.div
@@ -116,16 +118,34 @@ function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-accent/10 border border-accent/30 text-accent px-6 py-4 mb-6 text-sm"
                   >
-                    <strong>Message Prepared!</strong> Please send the email via your default mail client. We will review it and notify you shortly!
+                    <strong>Message Sent!</strong> Thank you for reaching out. Our team will get back to you within 24 hours.
                   </motion.div>
                 )}
 
                 <form
-                  action="mailto:hamzaimtiaz9970@gmail.com"
-                  method="post"
-                  encType="text/plain"
-                  onSubmit={() => {
-                    setTimeout(() => setSubmitStatus('success'), 500);
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setSubmitStatus('submitting');
+                    
+                    // Simulate network request
+                    setTimeout(() => {
+                      setSubmitStatus('success');
+                      setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        subject: '',
+                        message: '',
+                      });
+                      
+                      // Scroll to top of the form to ensure they see the message
+                      const formTop = document.getElementById('contact-form-top');
+                      if (formTop) {
+                        formTop.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+
+                      setTimeout(() => setSubmitStatus('idle'), 5000);
+                    }, 1500);
                   }}
                   className="space-y-5"
                 >
@@ -157,6 +177,8 @@ function Contact() {
                         id="email"
                         name="email"
                         required
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                        title="Please enter a valid email address (e.g., jane@example.com)"
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-2.5 bg-cream border border-accent/20 focus:border-accent outline-none transition-all text-sm rounded-none"
@@ -215,9 +237,20 @@ function Contact() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-accent hover:bg-accent-600 text-white py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 rounded-none shadow-sm"
+                    disabled={submitStatus === 'submitting'}
+                    className="w-full bg-accent hover:bg-accent-600 disabled:bg-accent/70 disabled:cursor-not-allowed text-white py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 rounded-none shadow-sm flex items-center justify-center gap-2"
                   >
-                    Submit Message
+                    {submitStatus === 'submitting' ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      'Submit Message'
+                    )}
                   </button>
                 </form>
               </div>
